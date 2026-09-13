@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Vibe Wallpaper",
+  "version": "1.0.0",
+  "identifier": "cn.bodil.vibe-wallpaper",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Vibe 壁纸设置",
+        "width": 650,
+        "height": 960,
+        "resizable": true,
+        "maximizable": false,
+        "center": true,
+        "visible": true,
+        "hiddenTitle": true,
+        "titleBarStyle": "Overlay"
+      }
+    ],
+    "security": {
+      "csp": null
+    },
+    "withGlobalTauri": true
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "../public/logo.png",
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  },
+  "plugins": {
+    "protocol": {
+      "asset": true,
+      "scope": [
+        "$TEMP/vibe_wallpaper/*",
+        "$APPDATA/vibe-wallpaper/*",
+        "$HOME/Pictures/*"
+      ]
+    }
+  }
+}
